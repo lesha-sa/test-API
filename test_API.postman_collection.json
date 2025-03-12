@@ -1,0 +1,886 @@
+{
+	"info": {
+		"_postman_id": "0a95e4e2-3bce-43a7-b6f6-067a4d2eef84",
+		"name": "test_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26681951",
+		"_collection_link": "https://www.postman.com/cryosat-pilot-61556166/workspace/test-workspase/collection/26681951-0a95e4e2-3bce-43a7-b6f6-067a4d2eef84?action=share&source=collection_link&creator=26681951"
+	},
+	"item": [
+		{
+			"name": "Pet store",
+			"item": [
+				{
+					"name": "Pets",
+					"item": [
+						{
+							"name": "Positive",
+							"item": [
+								{
+									"name": "Get pet by status",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{petstore_url}}/pet/findByStatus?status=pending",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"pet",
+												"findByStatus"
+											],
+											"query": [
+												{
+													"key": "status",
+													"value": "pending"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get pet by id",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{petstore_url}}/pet/63",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"pet",
+												"63"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add pet",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": 3355641,\r\n  \"category\": {\r\n    \"id\": 3355641,\r\n    \"name\": \"cat\"\r\n  },\r\n  \"name\": \"Pepsi\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 33020,\r\n      \"name\": \"street\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{petstore_url}}/pet",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"pet"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Upload image",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "additionalMetadata",
+													"value": "image.webp",
+													"type": "text"
+												},
+												{
+													"key": "file",
+													"type": "file",
+													"src": "/C:/Users/Админ/Downloads/cat.webp"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{petstore_url}}/pet/3355641/uploadImage",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"pet",
+												"3355641",
+												"uploadImage"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update pet",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": 3355641,\r\n  \"category\": {\r\n    \"id\": 3355641,\r\n    \"name\": \"cat\"\r\n  },\r\n  \"name\": \"Boy\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 33020,\r\n      \"name\": \"street\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{petstore_url}}/pet",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"pet"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update pet via form-data",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "name",
+													"value": "Cat",
+													"type": "text"
+												},
+												{
+													"key": "status",
+													"value": "available",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{petstore_url}}/pet/3355641",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"pet",
+												"3355641"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete pet",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "api_key",
+												"value": "special-key",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{petstore_url}}/pet/3355641",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"pet",
+												"3355641"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Negative",
+							"item": [
+								{
+									"name": "Get pet by status: wrong status",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{petstore_url}}/pet/findByStatus?status=acb",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"pet",
+												"findByStatus"
+											],
+											"query": [
+												{
+													"key": "status",
+													"value": "acb"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get pet by id: Pet not found",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{petstore_url}}/pet/556665",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"pet",
+												"556665"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add pet: Bad input",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": aa,\r\n  \"category\": {\r\n    \"id\": 3355641,\r\n    \"name\": \"cat\"\r\n  },\r\n  \"name\": \"Pepsi\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 33020,\r\n      \"name\": \"street\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{petstore_url}}/pet",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"pet"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Upload image: Unselected picture",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{petstore_url}}/pet/3355641/uploadImage",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"pet",
+												"3355641",
+												"uploadImage"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update pet: Bad input",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": qqws,\r\n  \"category\": {\r\n    \"id\": 3355641,\r\n    \"name\": \"cat\"\r\n  },\r\n  \"name\": \"Pepsi\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 33020,\r\n      \"name\": \"street\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{petstore_url}}/pet",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"pet"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update pet via form-data: Not found",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "name",
+													"value": "Bad cat",
+													"type": "text"
+												},
+												{
+													"key": "status",
+													"value": "available",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{petstore_url}}/pet/3355123123123",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"pet",
+												"3355123123123"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete pet: Not Found",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{petstore_url}}/pet/3355641",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"pet",
+												"3355641"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Store",
+					"item": [
+						{
+							"name": "Positive",
+							"item": [
+								{
+									"name": "Add order",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": 0,\r\n  \"petId\": 0,\r\n  \"quantity\": 0,\r\n  \"shipDate\": \"2025-03-11T20:42:10.147Z\",\r\n  \"status\": \"placed\",\r\n  \"complete\": true\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{petstore_url}}/store/order",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"store",
+												"order"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get order",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{petstore_url}}/store/order/6447940880156255080",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"store",
+												"order",
+												"6447940880156255080"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete order",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{petstore_url}}/store/order/6447940880156255080",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"store",
+												"order",
+												"6447940880156255080"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Negative",
+							"item": [
+								{
+									"name": "Add order: Wrong complete",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": 0,\r\n  \"petId\": 0,\r\n  \"quantity\": 0,\r\n  \"shipDate\": \"2025-03-11T20:42:10.147Z\",\r\n  \"status\": \"placed\",\r\n  \"complete\": 'a'\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{petstore_url}}/store/order",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"store",
+												"order"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get order: Invalid ID",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{petstore_url}}/store/order/6447940880156255079",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"store",
+												"order",
+												"6447940880156255079"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete order: Order not found",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{petstore_url}}/store/order/6447940880156255080",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"store",
+												"order",
+												"6447940880156255080"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "Positive",
+							"item": [
+								{
+									"name": "Create user",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": 2035,\r\n  \"username\": \"Jack\",\r\n  \"firstName\": \"Jack\",\r\n  \"lastName\": \"Re\",\r\n  \"email\": \"re@.gmail.com\",\r\n  \"password\": \"12345\",\r\n  \"phone\": \"+xxxxxxxxxx\",\r\n  \"userStatus\": 0\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{petstore_url}}/user",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get user by name",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{petstore_url}}/user/Jack",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"user",
+												"Jack"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create user with array",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "[\r\n\t{\r\n  \"id\": 2035,\r\n  \"username\": \"Jack\",\r\n  \"firstName\": \"Jack\",\r\n  \"lastName\": \"Re\",\r\n  \"email\": \"re@.gmail.com\",\r\n  \"password\": \"12345\",\r\n  \"phone\": \"+xxxxxxxxxx\",\r\n  \"userStatus\": 0\r\n },\r\n {\r\n  \"id\": 2039,\r\n  \"username\": \"Back\",\r\n  \"firstName\": \"Back\",\r\n  \"lastName\": \"Se\",\r\n  \"email\": \"se@.gmail.com\",\r\n  \"password\": \"12345\",\r\n  \"phone\": \"+xxxxxxxxxx\",\r\n  \"userStatus\": 0\r\n }\r\n]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{petstore_url}}/user/createWithArray",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"user",
+												"createWithArray"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update user",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": 2035,\r\n  \"username\": \"JSack\",\r\n  \"firstName\": \"Jack\",\r\n  \"lastName\": \"Re\",\r\n  \"email\": \"re@.gmail.com\",\r\n  \"password\": \"12345\",\r\n  \"phone\": \"+xxxxxxxxxx\",\r\n  \"userStatus\": 0\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{petstore_url}}/user",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Login user",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{petstore_url}}/user/login?username=Jack&password=12345",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"user",
+												"login"
+											],
+											"query": [
+												{
+													"key": "username",
+													"value": "Jack"
+												},
+												{
+													"key": "password",
+													"value": "12345"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete user by name",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{petstore_url}}/user/Jack",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"user",
+												"Jack"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Negative",
+							"item": [
+								{
+									"name": "Create user: Bad input",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": xx,\r\n  \"username\": \"Jack\",\r\n  \"firstName\": \"Jack\",\r\n  \"lastName\": \"Re\",\r\n  \"email\": \"re@.gmail.com\",\r\n  \"password\": \"12345\",\r\n  \"phone\": \"+xxxxxxxxxx\",\r\n  \"userStatus\": 0\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{petstore_url}}/user",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get user by name: User not found",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{petstore_url}}/user/Jackkk",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"user",
+												"Jackkk"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create user with array: Bad input",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "[\r\n\t{\r\n  \"id\": xx,\r\n  \"username\": \"Jack\",\r\n  \"firstName\": \"Jack\",\r\n  \"lastName\": \"Re\",\r\n  \"email\": \"re@.gmail.com\",\r\n  \"password\": \"12345\",\r\n  \"phone\": \"+xxxxxxxxxx\",\r\n  \"userStatus\": 0\r\n },\r\n {\r\n  \"id\": 2039,\r\n  \"username\": \"Back\",\r\n  \"firstName\": \"Back\",\r\n  \"lastName\": \"Se\",\r\n  \"email\": \"se@.gmail.com\",\r\n  \"password\": \"12345\",\r\n  \"phone\": \"+xxxxxxxxxx\",\r\n  \"userStatus\": 0\r\n }\r\n]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{petstore_url}}/user/createWithArray",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"user",
+												"createWithArray"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update user: Bad input",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": x,\r\n  \"username\": \"JSack\",\r\n  \"firstName\": \"Jack\",\r\n  \"lastName\": \"Re\",\r\n  \"email\": \"re@.gmail.com\",\r\n  \"password\": \"12345\",\r\n  \"phone\": \"+xxxxxxxxxx\",\r\n  \"userStatus\": 0\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{petstore_url}}/user",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Login user: Invalid username/password",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{petstore_url}}/user/login?username=Jack&password=12345",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"user",
+												"login"
+											],
+											"query": [
+												{
+													"key": "username",
+													"value": "Jack"
+												},
+												{
+													"key": "password",
+													"value": "12345"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete user by name: not found",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{petstore_url}}/user/Jackdd",
+											"host": [
+												"{{petstore_url}}"
+											],
+											"path": [
+												"user",
+												"Jackdd"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
